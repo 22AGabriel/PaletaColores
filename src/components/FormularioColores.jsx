@@ -3,7 +3,6 @@ import { Button, Form } from 'react-bootstrap';
 import ListaColores from "./ListaColores"
 
 const FormularioColores = () => {
-
     const [color, setColor] = useState('');
     const [arregloColores, setArregloColores] = useState([]);
 
@@ -11,6 +10,11 @@ const FormularioColores = () => {
         e.preventDefault();
         setArregloColores([...arregloColores, color]);
         setColor('');
+    }
+
+    const borrarColor = (nombreColor) => {
+        let arregloModificado = arregloColores.filter((item) => item !== nombreColor);
+        setArregloColores(arregloModificado);
     }
 
     return (
@@ -32,7 +36,7 @@ const FormularioColores = () => {
                     </div>
                 </Form.Group>
             </Form>
-            <ListaColores arregloColores={arregloColores}></ListaColores>
+            <ListaColores arregloColores={arregloColores} borrarColor={borrarColor}></ListaColores>
         </>
     );
 };
