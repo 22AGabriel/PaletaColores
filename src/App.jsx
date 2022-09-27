@@ -1,9 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from "react-bootstrap";
+import FormularioColores from './components/FormularioColores';
+import "./app.css"
 
 function App() {
   return (
     <>
-      <h1>Paleta de colores</h1>
+      <Container className='my-5'>
+        <FormularioColores></FormularioColores>
+      </Container>
     </>
   );
 }
