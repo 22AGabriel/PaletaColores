@@ -2,11 +2,13 @@ import React from 'react';
 import { ListGroup, Row } from 'react-bootstrap';
 import ItemColor from "./ItemColor"
 
-const ListaColores = () => {
+const ListaColores = ({arregloColores}) => {
     return (
         <ListGroup className="my-5">
             <Row>
-                <ItemColor></ItemColor>
+                {
+                    arregloColores.map((color, posicion) => <ItemColor key={posicion} nombreColor={color}></ItemColor>)
+                }  
             </Row>
         </ListGroup>
     );
