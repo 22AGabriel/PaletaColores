@@ -13,7 +13,7 @@ Uso de props, hooks, react-bootstrap y localstorage.
 
 ## Demo del proyecto
 
-Proba la demo de la lista de tareas del siguiente [link]()
+Proba la demo de la lista de tareas del siguiente [link](https://react-paletadecolores.netlify.app/)
 
 ## Librerias externas
 
