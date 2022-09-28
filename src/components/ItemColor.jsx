@@ -7,7 +7,7 @@ const ItemColor = ({nombreColor, borrarColor}) => {
             <ListGroup.Item>
                 {nombreColor}
                 <div className='my-3 d-flex justify-content-center'>
-                    <div className='colorNuevo' style={{'background' : nombreColor }}></div>
+                    <div className='caja' style={{'background' : nombreColor }}></div>
                 </div>
                 <div className='d-flex justify-content-end'>
                 <Button variant="danger" onClick={() => borrarColor(nombreColor)}>Borrar</Button>

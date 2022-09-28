@@ -6,6 +6,11 @@ const FormularioColores = () => {
     const coloresLocalStorage = JSON.parse(localStorage.getItem('listaColoresStorage')) || [];
     const [color, setColor] = useState('');
     const [arregloColores, setArregloColores] = useState(coloresLocalStorage);
+    const [cajaColor, setCajaColor] = useState("");
+
+    if(cajaColor === ""){
+        setCajaColor("blue")
+    }
 
     useEffect(() => {
         localStorage.setItem('listaColoresStorage', JSON.stringify(arregloColores))
@@ -22,17 +27,22 @@ const FormularioColores = () => {
         setArregloColores(arregloModificado);
     }
 
+    const cambiarColor = (colorIngresado) => {
+        setCajaColor(colorIngresado);
+        setColor(colorIngresado);
+    }
+
     return (
         <>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className='border rounded py-3'>
                     <Form.Label className='ms-3'>Administrar colores</Form.Label>
                     <div className='d-flex bg-light p-3'>
-                      <div className='caja'></div>
+                      <div className='caja' style={{'background' : cajaColor}}></div>
                       <Form.Control 
                         className='mx-2 align-self-center'
                         type="text" 
-                        onChange={(e) => setColor(e.target.value)}
+                        onChange={(e) => cambiarColor(e.target.value)}
                         value={color}
                         placeholder='Ingrese un color. Ej: Blue'/>
                     </div>
