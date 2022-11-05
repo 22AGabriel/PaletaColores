@@ -1,16 +1,16 @@
 import React from 'react';
 import { Button, Col } from 'react-bootstrap';
 
-const ItemColor = ({nombreColor, borrarColor}) => {
+const ItemColor = ({color}) => {
     return (
         <Col xs={6} md={4} lg={3} className="my-2">
             <div className='p-2 border rounded bg-light'>
-                {nombreColor}
+                {color.nombreColor}
                 <div className='my-3 d-flex justify-content-center'>
-                    <div className='caja' style={{'background' : nombreColor }}></div>
+                    <div className='caja' style={{'background' : color.nombreColor }}></div>
                 </div>
                 <div className='d-flex justify-content-end'>
-                    <Button variant="danger" onClick={() => borrarColor(nombreColor)}>Borrar</Button>
+                    <Button variant="danger">Borrar</Button>
                 </div>
             </div>
         </Col>
