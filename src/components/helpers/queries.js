@@ -54,3 +54,17 @@ export const editarColorAPI = async(id, color) => {
         return false;
     }
 }
+
+export const obtenerColorAPI = async(id) => {
+    try{
+        const respuesta = await fetch(URL+`/${id}`);
+        const color = {
+            dato: await respuesta.json(),
+            status: respuesta.status
+        }
+        return color;
+    }catch(error){
+        console.log(error);
+        return false;
+    }
+}

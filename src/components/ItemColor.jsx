@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Col, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { borrarColorAPI, consultarAPI, editarColorAPI } from "./helpers/queries";
+import { borrarColorAPI, consultarAPI, editarColorAPI, obtenerColorAPI } from "./helpers/queries";
 
 const ItemColor = ({ color, setColores }) => {
-    const {register, handleSubmit, formState: { errors }} = useForm();
+    const {register, handleSubmit, formState: { errors }, watch, setValue} = useForm();
+    const colorCaja = watch("nombreColor")
+
+    useEffect(() => {
+        obtenerColorAPI(color.id).then((respuesta) => {
+            if(respuesta.status === 200){
+                setValue("nombreColor", respuesta.dato.nombreColor)
+            }
+        })
+      }, [])
 
   const borrarColor = () => {
     Swal.fire({
@@ -60,7 +69,6 @@ const ItemColor = ({ color, setColores }) => {
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group>
             <Form.Control className="fs-5 border-0 bg-transparent"
-            placeholder={color.nombreColor}
             {...register("nombreColor", {
                 required: "Este es un campo obligatorio",
                 minLength: {
@@ -75,7 +83,7 @@ const ItemColor = ({ color, setColores }) => {
           </Form.Group>
         </Form>
         <div className="my-3 d-flex justify-content-center">
-          <div className="caja" style={{ background: color.nombreColor }}></div>
+          <div className='caja' style={{'background' : colorCaja }}></div>
         </div>
         <div className="d-flex justify-content-end">
           <Button variant="danger" onClick={borrarColor}>
