@@ -5,8 +5,7 @@ import { Row } from 'react-bootstrap';
 import { consultarAPI } from './helpers/queries';
 import ItemColor from "./ItemColor"
 
-const ListaColores = () => {
-    const [colores, setColores] = useState([]);
+const ListaColores = ({colores, setColores}) => {
 
     useEffect(() => {
         consultarAPI().then((respuesta) => {
