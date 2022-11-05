@@ -23,3 +23,7 @@ Proba la demo de la lista de tareas del siguiente [link]()
 ## Autor
 
 Azubel, Cristian Gabriel
+
+## Comandos para ejecutar JSON-Server
+
+`json-server --watch db.json --port 3004`
