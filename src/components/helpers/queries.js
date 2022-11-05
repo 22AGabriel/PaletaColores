@@ -38,3 +38,19 @@ export const borrarColorAPI = async(id) => {
         return false;
     }
 }
+
+export const editarColorAPI = async(id, color) => {
+    try{
+        const respuesta = await fetch(URL+`/${id}`, {
+            method: "PUT",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(color)
+        });
+        return respuesta;
+    }catch(error){
+        console.log(error);
+        return false;
+    }
+}
