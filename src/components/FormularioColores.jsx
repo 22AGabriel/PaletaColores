@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 import { consultarAPI, crearColorAPI } from './helpers/queries';
 import ListaColores from "./ListaColores"
 
@@ -12,10 +13,13 @@ const FormularioColores = () => {
     const onSubmit = (data) => {
         crearColorAPI(data).then((respuesta) => {
             if(respuesta.status === 201){
+                Swal.fire("Nuevo color", "se agregó el color correctamente", "success")
                 consultarAPI().then((respuesta) => {
                     setColores(respuesta);
                     reset();
                 })
+            } else {
+                Swal.fire("Ocurrió un error", "Inténtelo nuevamente en unos minutos", "error");
             }
         })
     }

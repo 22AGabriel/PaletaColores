@@ -1,5 +1,3 @@
-import React from 'react';
-import { useState } from 'react';
 import { useEffect } from 'react';
 import { Row } from 'react-bootstrap';
 import { consultarAPI } from './helpers/queries';
