@@ -14,7 +14,7 @@ const ListaColores = ({colores, setColores}) => {
     return (
         <Row className="my-5">
             {
-            colores.map((color) => <ItemColor key={color.id} color={color} setColores={setColores}></ItemColor>)
+            colores.map((color) => <ItemColor key={color._id} color={color} setColores={setColores}></ItemColor>)
             }  
         </Row>
     );

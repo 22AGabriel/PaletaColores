@@ -9,7 +9,7 @@ const ItemColor = ({ color, setColores }) => {
     const colorCaja = watch("nombreColor")
 
     useEffect(() => {
-        obtenerColorAPI(color.id).then((respuesta) => {
+        obtenerColorAPI(color._id).then((respuesta) => {
             if(respuesta.status === 200){
                 setValue("nombreColor", respuesta.dato.nombreColor)
             }
@@ -28,7 +28,7 @@ const ItemColor = ({ color, setColores }) => {
       CancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        borrarColorAPI(color.id).then((respuesta) => {
+        borrarColorAPI(color._id).then((respuesta) => {
           if (respuesta.status === 200) {
             Swal.fire(
               "Color eliminado",
@@ -51,7 +51,7 @@ const ItemColor = ({ color, setColores }) => {
   };
 
   const onSubmit = (data) => {
-    editarColorAPI(color.id, data).then((respuesta) => {
+    editarColorAPI(color._id, data).then((respuesta) => {
         if(respuesta.status === 200){
             Swal.fire("Color editado", "se editó el color correctamente", "success")
             consultarAPI().then((respuesta) => {

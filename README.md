@@ -9,7 +9,7 @@ Una vez clonado el proyecto, ejecutar los siguientes comandos para correr el pro
 ## Descripción del proyecto
 
 Ejercicio N° 6 del TP de React del curso FullStack en RollingCodeSchool.  
-Uso de props, hooks, react-bootstrap y localstorage.
+Uso de props, hooks, react-bootstrap ,validaciones y base de datos.
 
 ## Demo del proyecto
 
@@ -17,13 +17,15 @@ Proba la demo de la lista de tareas del siguiente [link]()
 
 ## Librerias externas
 
-- React-Bootstrap
-- Bootstrap
+- React-Bootstrap v2.5
+- Bootstrap v5.2
+- React-hook-form v6
+- SweetAlert2 v11.4.
 
 ## Autor
 
 Azubel, Cristian Gabriel
 
-## Comandos para ejecutar JSON-Server
+<!-- ## Comandos para ejecutar JSON-Server
 
-`json-server --watch db.json --port 3004`
+`json-server --watch db.json --port 3004` -->
